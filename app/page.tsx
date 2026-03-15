@@ -21,7 +21,7 @@ export default function LandingPage() {
         {/* Buttons */}
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
-            href="https://buy.stripe.com/8x228l9Hd4v9fC02pXfQI01 
+            href="https://buy.stripe.com/8x228l9Hd4v9fC02pXfQI01"
             className="rounded-xl bg-[#e98aa4] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#df6f8d]"
           >
             Start Free Trial
