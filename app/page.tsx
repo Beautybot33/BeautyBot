@@ -4,7 +4,7 @@ export default function LandingPage() {
       <div className="mx-auto max-w-6xl px-6 py-16 text-center">
         {/* Badge */}
         <p className="mb-6 inline-block rounded-full border border-[#edd6dc] bg-white px-4 py-2 text-sm text-[#9c7b85] shadow-sm">
-          BeautyBot — AI Marketing for Beauty Businesses
+          BeautyBot AI Marketing for Beauty Businesses
         </p>
 
         {/* Headline */}
