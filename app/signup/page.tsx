@@ -20,14 +20,15 @@ export default function SignupPage() {
     setMessage("");
 
     const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          business_name: businessName,
-        },
-      },
-    });
+  email,
+  password,
+  options: {
+    emailRedirectTo: "https://beauty-bot-beta.vercel.app/auth/callback",
+    data: {
+      business_name: businessName,
+    },
+  },
+});
 
     if (error) {
       setMessage(error.message);
