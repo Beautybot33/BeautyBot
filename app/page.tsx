@@ -1,31 +1,78 @@
 export default function LandingPage() {
+  const employees = [
+    {
+      name: "CaptionBot",
+      role: "Your content employee",
+      description:
+        "Creates beauty captions for promos, client transformations, launches and engagement posts in seconds.",
+    },
+    {
+      name: "ReplyBot",
+      role: "Your client message employee",
+      description:
+        "Writes fast, polished replies for bookings, inquiries, objections, follow-ups and rebooking messages.",
+    },
+    {
+      name: "CampaignBot",
+      role: "Your promotions employee",
+      description:
+        "Builds full promo campaigns for slow days, special offers, seasonal pushes and service launches.",
+    },
+    {
+      name: "ContentBot",
+      role: "Your planning employee",
+      description:
+        "Generates post ideas, hooks and content plans tailored to your beauty business and audience.",
+    },
+    {
+      name: "OfferBot",
+      role: "Your sales employee",
+      description:
+        "Helps package services into irresistible offers that feel premium, clear and easy for clients to buy.",
+    },
+    {
+      name: "ReviewBot",
+      role: "Your reputation employee",
+      description:
+        "Creates thoughtful, professional replies to reviews and client feedback to strengthen your brand.",
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#f9ecef] via-[#f5e3e9] to-white">
       <div className="mx-auto max-w-6xl px-6 py-16 text-center">
         {/* Badge */}
         <p className="mb-6 inline-block rounded-full border border-[#edd6dc] bg-white px-4 py-2 text-sm text-[#9c7b85] shadow-sm">
-          BeautyBot — AI Marketing for Beauty Businesses
+          BeautyBot — AI Employees for Beauty Businesses
         </p>
 
         {/* Headline */}
         <h1 className="mx-auto max-w-4xl text-4xl font-semibold tracking-tight text-[#8c5a67] sm:text-5xl md:text-6xl">
-          AI Marketing That Helps Beauty Businesses Get More Bookings
+          Hire Your AI Beauty Team
         </h1>
 
         {/* Subtext */}
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[#7a646c] sm:text-lg">
-          BeautyBot helps salons, clinics, lash artists and beauty brands create
-          captions, promotions, campaigns and client replies in seconds — so you
-          can grow your business without spending hours on marketing.
+        <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-[#7a646c] sm:text-lg">
+          BeautyBot gives salons, clinics, lash artists and beauty brands instant
+          AI employees for captions, promotions, campaigns, client replies and
+          content planning — so you can grow faster without doing all the
+          marketing yourself.
         </p>
 
         {/* Buttons */}
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
             href="https://buy.stripe.com/8x228l9Hd4v9fC02pXfQI01"
-            className="rounded-xl bg-[#e98aa4] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#df6f8d]"
+            className="rounded-xl bg-[#d96b8a] px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#c85d7b]"
           >
             Start 7-Day Free Trial
+          </a>
+
+          <a
+            href="#ai-employees"
+            className="rounded-xl border border-[#d9b8c1] bg-white px-6 py-3 text-sm font-medium text-[#8c5a67] shadow-sm transition hover:bg-[#fff7f9]"
+          >
+            Meet Your AI Employees
           </a>
 
           <a
@@ -36,20 +83,116 @@ export default function LandingPage() {
           </a>
         </div>
 
-        {/* DEMO PREVIEW SECTION */}
-        <div className="mx-auto mt-20 max-w-3xl rounded-[32px] border border-[#edd6dc] bg-white p-6 text-left shadow-sm sm:p-8">
+        {/* AI EMPLOYEES */}
+        <section id="ai-employees" className="mt-20">
           <div className="text-center">
             <p className="mb-3 inline-block rounded-full border border-[#edd6dc] bg-[#fff7f9] px-4 py-1 text-sm text-[#9c7b85]">
-              See BeautyBot In Action
+              Meet Your AI Team
+            </p>
+
+            <h2 className="text-3xl font-semibold text-[#8c5a67] sm:text-4xl">
+              Different AI Employees, One Powerful BeautyBot
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-[#6f5860] sm:text-base">
+              Instead of one generic tool, BeautyBot gives you a team of AI
+              employees designed to help beauty businesses market smarter, reply
+              faster and book more clients.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {employees.map((employee) => (
+              <div
+                key={employee.name}
+                className="rounded-[28px] border border-[#edd6dc] bg-white p-6 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              >
+                <p className="inline-block rounded-full border border-[#f0dce1] bg-[#fff7f9] px-3 py-1 text-xs font-medium tracking-wide text-[#b07c89]">
+                  AI Employee
+                </p>
+
+                <h3 className="mt-4 text-xl font-semibold text-[#8c5a67]">
+                  {employee.name}
+                </h3>
+
+                <p className="mt-2 text-sm font-medium text-[#b07c89]">
+                  {employee.role}
+                </p>
+
+                <p className="mt-4 text-sm leading-7 text-[#6f5860] sm:text-base">
+                  {employee.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* HOW IT WORKS */}
+        <section className="mt-24 rounded-[32px] border border-[#edd6dc] bg-white p-8 shadow-sm sm:p-10">
+          <p className="mb-3 inline-block rounded-full border border-[#edd6dc] bg-[#fff7f9] px-4 py-1 text-sm text-[#9c7b85]">
+            How It Works
+          </p>
+
+          <h2 className="text-3xl font-semibold text-[#8c5a67] sm:text-4xl">
+            Your AI beauty team works in 3 simple steps
+          </h2>
+
+          <div className="mt-10 grid gap-5 text-left md:grid-cols-3">
+            <div className="rounded-[24px] border border-[#f0dce1] bg-[#fff9fb] p-6">
+              <p className="text-sm font-semibold uppercase tracking-wide text-[#b07c89]">
+                Step 1
+              </p>
+              <h3 className="mt-3 text-lg font-semibold text-[#8c5a67]">
+                Pick your AI employee
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-[#6f5860] sm:text-base">
+                Choose CaptionBot, ReplyBot, CampaignBot, ContentBot and more
+                depending on what your business needs today.
+              </p>
+            </div>
+
+            <div className="rounded-[24px] border border-[#f0dce1] bg-[#fff9fb] p-6">
+              <p className="text-sm font-semibold uppercase tracking-wide text-[#b07c89]">
+                Step 2
+              </p>
+              <h3 className="mt-3 text-lg font-semibold text-[#8c5a67]">
+                Enter your details
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-[#6f5860] sm:text-base">
+                Add your service, offer, audience or tone and BeautyBot gets to
+                work instantly.
+              </p>
+            </div>
+
+            <div className="rounded-[24px] border border-[#f0dce1] bg-[#fff9fb] p-6">
+              <p className="text-sm font-semibold uppercase tracking-wide text-[#b07c89]">
+                Step 3
+              </p>
+              <h3 className="mt-3 text-lg font-semibold text-[#8c5a67]">
+                Get content fast
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-[#6f5860] sm:text-base">
+                Use your outputs for posts, promotions, replies and content
+                planning in seconds instead of spending hours writing.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* DEMO PREVIEW SECTION */}
+        <div className="mx-auto mt-24 max-w-4xl rounded-[32px] border border-[#edd6dc] bg-white p-6 text-left shadow-sm sm:p-8">
+          <div className="text-center">
+            <p className="mb-3 inline-block rounded-full border border-[#edd6dc] bg-[#fff7f9] px-4 py-1 text-sm text-[#9c7b85]">
+              See Your AI Employees In Action
             </p>
 
             <h2 className="text-2xl font-semibold text-[#8c5a67] sm:text-3xl">
-              Example AI Marketing Output
+              See What Your AI Beauty Team Can Create
             </h2>
 
             <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-[#6f5860] sm:text-base">
-              Here’s an example of the kind of content BeautyBot can generate for
-              beauty businesses in seconds.
+              Here’s an example of how different BeautyBot AI employees can help
+              promote a keratin treatment in seconds.
             </p>
           </div>
 
@@ -58,34 +201,35 @@ export default function LandingPage() {
               Example: Keratin Treatment Promotion
             </p>
 
-            <div className="mt-4 space-y-5 text-[#6f5860]">
+            <div className="mt-4 space-y-6 text-[#6f5860]">
               <div>
                 <h3 className="text-base font-semibold text-[#8c5a67]">
-                  Caption
+                  CaptionBot Output
                 </h3>
                 <p className="mt-2 text-sm leading-7 sm:text-base">
                   ✨ Say goodbye to frizz and hello to smooth, glossy hair. Our
                   luxury keratin treatment is designed to leave your hair softer,
-                  shinier and easier to manage. Perfect for anyone wanting a sleek,
-                  polished finish with less styling stress. Book your appointment
-                  this week and give your hair the glow-up it deserves. 💖
+                  shinier and easier to manage. Perfect for anyone wanting a
+                  sleek, polished finish with less styling stress. Book your
+                  appointment this week and give your hair the glow-up it
+                  deserves. 💖
                 </p>
               </div>
 
               <div>
                 <h3 className="text-base font-semibold text-[#8c5a67]">
-                  Promo Idea
+                  CampaignBot Output
                 </h3>
                 <p className="mt-2 text-sm leading-7 sm:text-base">
                   Run a limited-time “Smooth Hair Week” offer with a bonus
-                  take-home treatment or special discount for first-time keratin
-                  bookings.
+                  take-home treatment or a special first-time keratin booking
+                  incentive to create urgency and boost appointments.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-base font-semibold text-[#8c5a67]">
-                  Client Reply Example
+                  ReplyBot Output
                 </h3>
                 <p className="mt-2 text-sm leading-7 sm:text-base">
                   Hi lovely! Yes, we do offer keratin treatments. They’re perfect
@@ -99,105 +243,17 @@ export default function LandingPage() {
 
           <div className="mt-8 text-center">
             <p className="mx-auto max-w-xl text-sm leading-7 text-[#6f5860] sm:text-base">
-              Start your 7-day free trial to unlock unlimited captions,
-              promotions, campaigns and client replies for your beauty business.
+              Start your 7-day free trial to unlock your AI beauty team for
+              captions, promotions, campaigns, client replies and content
+              planning.
             </p>
 
             <a
               href="https://buy.stripe.com/8x228l9Hd4v9fC02pXfQI01"
-              className="mt-5 inline-block rounded-xl bg-[#e98aa4] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#df6f8d]"
+              className="mt-6 inline-block rounded-xl bg-[#d96b8a] px-7 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#c85d7b]"
             >
               Start Free Trial
             </a>
-          </div>
-        </div>
-
-        {/* WHY SECTION */}
-        <div className="mt-24 mb-20 text-center">
-          <h2 className="text-3xl font-semibold text-[#8c5a67]">
-            Stop Guessing What To Post
-          </h2>
-
-          <p className="mx-auto mt-4 max-w-2xl text-[#6f5860]">
-            Most beauty businesses know they need better marketing, but don’t have
-            time to constantly write captions, plan offers or reply perfectly to
-            every enquiry. BeautyBot helps you create marketing faster and convert
-            more interest into bookings.
-          </p>
-        </div>
-
-        {/* FEATURES */}
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-[30px] border border-[#edd6dc] bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-[#8c5a67]">
-              Get More Clients
-            </h2>
-
-            <p className="mt-3 leading-7 text-[#6f5860]">
-              Create stronger promotions, better offers and booking-focused
-              marketing that helps bring more clients into your business.
-            </p>
-          </div>
-
-          <div className="rounded-[30px] border border-[#edd6dc] bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-[#8c5a67]">
-              Never Run Out Of Content
-            </h2>
-
-            <p className="mt-3 leading-7 text-[#6f5860]">
-              Generate captions, hooks, content ideas and campaign angles tailored
-              for salons, clinics, lash artists and beauty brands.
-            </p>
-          </div>
-
-          <div className="rounded-[30px] border border-[#edd6dc] bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-[#8c5a67]">
-              Reply To Clients Faster
-            </h2>
-
-            <p className="mt-3 leading-7 text-[#6f5860]">
-              Write warm, polished client replies in seconds so you can turn more
-              enquiries into real appointments.
-            </p>
-          </div>
-        </div>
-
-        {/* HOW IT WORKS */}
-        <div className="mt-24 text-center">
-          <h2 className="text-3xl font-semibold text-[#8c5a67]">
-            How BeautyBot Works
-          </h2>
-
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
-            <div>
-              <h3 className="text-lg font-semibold text-[#8c5a67]">
-                1. Tell BeautyBot About Your Business
-              </h3>
-              <p className="mt-2 text-[#6f5860]">
-                Add your beauty business type, services and goals so your content
-                feels relevant and on-brand.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-[#8c5a67]">
-                2. Generate Marketing In Seconds
-              </h3>
-              <p className="mt-2 text-[#6f5860]">
-                Instantly create captions, campaigns, promotions and replies with
-                the support of your AI beauty marketing team.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-[#8c5a67]">
-                3. Turn More Interest Into Bookings
-              </h3>
-              <p className="mt-2 text-[#6f5860]">
-                Use the content across Instagram, TikTok and client messages to
-                market your business more consistently and professionally.
-              </p>
-            </div>
           </div>
         </div>
 
@@ -213,22 +269,27 @@ export default function LandingPage() {
 
           <p className="mx-auto mt-4 max-w-2xl text-[#6f5860]">
             Get 7 days free to explore BeautyBot, then continue with full access
-            for just $29.95 per month.
+            to your AI beauty team for just $29.95 per month.
           </p>
 
           <div className="mx-auto mt-8 max-w-xl rounded-[24px] border border-[#f0dce1] bg-[#fff9fb] p-6 text-left">
             <ul className="space-y-3 text-sm leading-7 text-[#6f5860] sm:text-base">
-              <li>✨ AI captions for beauty content</li>
-              <li>✨ Promotions and campaign ideas</li>
-              <li>✨ Client reply assistance</li>
-              <li>✨ Content planning support</li>
-              <li>✨ Built for salons, clinics and beauty brands</li>
+              <li>✨ Access to multiple AI employees</li>
+              <li>✨ Captions, promos and campaign support</li>
+              <li>✨ Fast client reply assistance</li>
+              <li>✨ Content planning and idea generation</li>
+              <li>✨ Built for salons, clinics, artists and beauty brands</li>
             </ul>
           </div>
 
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-[#8c5a67] sm:text-base">
+            Less than hiring one team member. Built to help you market faster,
+            reply quicker and grow smarter.
+          </p>
+
           <a
             href="https://buy.stripe.com/8x228l9Hd4v9fC02pXfQI01"
-            className="mt-8 inline-block rounded-xl bg-[#e98aa4] px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#df6f8d]"
+            className="mt-8 inline-block rounded-xl bg-[#d96b8a] px-7 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#c85d7b]"
           >
             Start 7-Day Free Trial
           </a>
@@ -237,17 +298,18 @@ export default function LandingPage() {
         {/* CTA */}
         <div className="mt-24 text-center">
           <h2 className="text-3xl font-semibold text-[#8c5a67]">
-            Ready To Grow Your Beauty Business?
+            Ready To Hire Your AI Beauty Team?
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-[#6f5860]">
-            Join BeautyBot and start creating better beauty marketing in seconds.
+            Join BeautyBot and give your beauty business AI employees that help
+            you create faster, market better and book more.
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="https://buy.stripe.com/8x228l9Hd4v9fC02pXfQI01"
-              className="rounded-xl bg-[#e98aa4] px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#df6f8d]"
+              className="rounded-xl bg-[#d96b8a] px-7 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#c85d7b]"
             >
               Start Free Trial
             </a>
