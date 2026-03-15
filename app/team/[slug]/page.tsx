@@ -155,7 +155,7 @@ export default function EmployeePage() {
         <div className="mx-auto max-w-3xl rounded-[28px] border border-[#e6c4cc] bg-white/85 p-8 shadow-sm">
           <h1 className="text-3xl font-semibold">Employee not found</h1>
           <a
-            href="/"
+            href="/command"
             className="mt-6 inline-block rounded-full border border-[#d9b6bf] bg-white/70 px-4 py-2 text-sm text-[#7a5961]"
           >
             ← Back to team
@@ -331,7 +331,7 @@ Booking CTA: ${data.bookingCta}`;
                   <input
                     value={businessContext}
                     onChange={(e) => setBusinessContext(e.target.value)}
-                    placeholder="Example: Luxury Melbourne salon specialising in balayage, extensions, and premium feminine branding"
+                    placeholder="Example: Melbourne salon specialising in balayage, extensions, and premium feminine branding"
                     className="w-full rounded-xl border border-[#dcc0c7] bg-white px-4 py-3 text-[#5c3942] outline-none placeholder:text-[#a07d86] focus:border-[#c99ca8] focus:ring-2 focus:ring-[#efd3d9]"
                   />
                 </div>
