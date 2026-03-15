@@ -29,7 +29,13 @@ Call to Action:
 [short CTA]
 `;
 
-    const response = await fetch("http://localhost:11434/api/generate", {
+if (!process.env.OLLAMA_URL) {
+  return NextResponse.json(
+    { result: "OLLAMA_URL is not set." },
+    { status: 500 }
+  );
+}
+    const response = await fetch(`${process.env.OLLAMA_URL}/api/generate`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
