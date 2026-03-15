@@ -278,7 +278,7 @@ Booking CTA: ${data.bookingCta}`;
     <main className="min-h-screen bg-gradient-to-b from-[#f8eaee] to-[#f3d9df] text-[#5c3942]">
       <div className="mx-auto max-w-6xl px-6 py-10">
         <a
-          href="/"
+          href="/command"
           className="mb-6 inline-block rounded-full border border-[#d9b6bf] bg-white/70 px-4 py-2 text-sm text-[#7a5961] shadow-sm transition hover:bg-white"
         >
           ← Back to AI Team
@@ -374,7 +374,7 @@ Booking CTA: ${data.bookingCta}`;
                         onClick={copyResult}
                         className="rounded-xl bg-[#e8cdd3] px-4 py-2 text-sm text-[#5c3942] transition hover:bg-[#dfbfc7]"
                       >
-                        📋 Copy result
+                         Copy 
                       </button>
                     )}
                   </div>
