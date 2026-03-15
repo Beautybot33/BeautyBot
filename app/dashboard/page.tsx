@@ -1,3 +1,6 @@
+import { redirect } from "next/navigation"
+import { createClient } from "@/utils/supabase/server"
+
 const employees = [
   {
     name: "Ava",
@@ -39,7 +42,7 @@ const employees = [
     href: "/team/sienna",
     icon: "📲",
   },
-];
+]
 
 const tools = [
   {
@@ -70,10 +73,10 @@ const tools = [
     href: "/dm",
     icon: "💌",
   },
-];
+]
 
 const sidebarLinks = [
-  { label: "Dashboard", href: "/" },
+  { label: "Dashboard", href: "/dashboard" },
   { label: "Command Center", href: "/command" },
   { label: "Client Profile", href: "/profile" },
   { label: "Saved Results", href: "/saved" },
@@ -81,29 +84,38 @@ const sidebarLinks = [
   { label: "Tools", href: "#tools" },
   { label: "Campaigns", href: "/campaign" },
   { label: "Captions", href: "/caption" },
-];
+]
 
-export default function HomePage() {
+export default async function DashboardPage() {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    redirect("/login")
+  }
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <div className="flex min-h-screen">
         <aside className="hidden w-72 flex-col border-r border-[#edd6dc] bg-[#fff7f9]/90 px-6 py-8 shadow-[6px_0_24px_rgba(140,90,103,0.04)] lg:flex">
           <div className="mb-10 flex items-center gap-3">
-           <img
-  src="/beautybot-logo.jpg"
-  alt="BeautyBot"
-  className="h-12 w-12 rounded-full object-cover border border-[#edd6dc]"
-/>
+            <img
+              src="/beautybot-logo.jpg"
+              alt="BeautyBot"
+              className="h-12 w-12 rounded-full border border-[#edd6dc] object-cover"
+            />
 
             <div>
               <p className="text-lg font-semibold tracking-tight text-[#8c5a67]">
                 BeautyBot
               </p>
               <p className="text-sm text-[#9c7b85]">
-                AI beauty Marketing system
+                AI Beauty Marketing System
               </p>
             </div>
-          </div> 
+          </div>
 
           <nav className="space-y-2">
             {sidebarLinks.map((link) => (
@@ -130,55 +142,44 @@ export default function HomePage() {
 
         <div className="flex-1">
           <header className="border-b border-[#edd6dc] bg-[#fff7f9]/80 px-6 py-5 backdrop-blur md:px-8">
-            <div className="mx-auto flex max-w-7xl items-center justify-between">
+            <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4">
               <div>
                 <p className="text-sm text-[#9c7b85]">BeautyBot Dashboard</p>
                 <h1 className="mt-1 text-2xl font-semibold tracking-tight text-[#8c5a67]">
                   Your AI Beauty Team
                 </h1>
               </div>
-<form action="/auth/logout" method="post">
-  <button className="rounded-xl bg-[#e98aa4] px-5 py-2 text-sm font-medium text-white shadow-sm hover:bg-[#df6f8d] transition">
-    Logout
-  </button>
-</form>
-             <div className="flex flex-wrap gap-3">
-  <div className="flex flex-wrap gap-3">
 
-  <a
-    href="/command"
-    className="rounded-xl bg-[#d98fa1] px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-[#c97f92]"
-  >
-    Open Command Center
-  </a>
-
-  <a
-    href="#employees"
-    className="rounded-xl border border-[#edd6dc] bg-white px-5 py-3 text-sm font-medium text-[#8c5a67] shadow-sm transition hover:bg-[#fff7f9]"
-  >
-    View employees
-  </a>
-
-</div>
-
-                
+              <div className="flex flex-wrap items-center gap-3">
+<a
+  href="/command"
+  className="inline-flex items-center justify-center rounded-xl bg-[#e98aa4] px-6 py-3 text-sm font-semibold shadow-sm transition hover:bg-[#df6f8d]"
+>
+  <span className="text-white">Launch Command Center</span>
+</a>
 
                 <a
-                  href="/saved"
+                  href="#employees"
                   className="rounded-xl border border-[#edd6dc] bg-white px-5 py-3 text-sm font-medium text-[#8c5a67] shadow-sm transition hover:bg-[#fff7f9]"
                 >
-                  Saved Results
+                  View Employees
                 </a>
+
+             
+
+                <form action="/auth/logout" method="post">
+                  <button className="rounded-xl bg-[#e98aa4] px-5 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-[#df6f8d]">
+                    Logout
+                  </button>
+                </form>
               </div>
             </div>
           </header>
 
           <div className="mx-auto max-w-7xl px-6 py-8 md:px-8">
             <section className="mb-10 rounded-[34px] border border-[#edd6dc] bg-white p-10 shadow-[0_30px_80px_rgba(140,90,103,0.15)] md:p-12">
-
-
               <p className="mb-4 inline-block rounded-full border border-[#edd6dc] bg-white px-4 py-1 text-sm text-[#9c7b85] shadow-sm">
-                Beauty Ai System
+                Beauty AI System
               </p>
 
               <h2 className="max-w-4xl text-5xl font-semibold tracking-tight text-[#8c5a67] md:text-6xl">
@@ -205,12 +206,11 @@ export default function HomePage() {
               <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                 {employees.map((employee) => (
                   <div
-  key={employee.name}
-  className="rounded-[30px] border border-[#edd6dc] bg-white p-6 shadow-[0_10px_24px_rgba(140,90,103,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_rgba(140,90,103,0.18)]"
->
+                    key={employee.name}
+                    className="rounded-[30px] border border-[#edd6dc] bg-white p-6 shadow-[0_10px_24px_rgba(140,90,103,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_rgba(140,90,103,0.18)]"
+                  >
                     <div className="mb-5 flex items-center gap-4">
                       <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#f4d9e0] to-[#efd0d9] text-2xl shadow-sm">
-
                         {employee.icon}
                       </div>
 
@@ -223,19 +223,18 @@ export default function HomePage() {
                     </div>
 
                     <div className="mb-4 rounded-2xl border border-[#f0dce1] bg-white px-4 py-3 text-sm text-[#8d727a]">
-                      AI Module:{employee.role}
+                      AI Module: {employee.role}
                     </div>
 
                     <p className="mb-6 leading-7 text-[#6f5860]">
                       {employee.description}
                     </p>
 
-                    <a
+<a
   href={employee.href}
- className="inline-flex items-center rounded-xl bg-[#d98fa1] px-5 py-3 text-sm font-medium text-white shadow-md transition hover:bg-[#c97f92]"
-
+  className="inline-flex items-center justify-center rounded-xl bg-[#e98aa4] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#df6f8d]"
 >
-  Launch Module →
+  <span className="text-white">Open Employee →</span>
 </a>
                   </div>
                 ))}
@@ -280,5 +279,5 @@ export default function HomePage() {
         </div>
       </div>
     </main>
-  );
+  )
 }
